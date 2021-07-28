@@ -4,6 +4,8 @@ const morgan = require('morgan')    //used to login console to which api has bee
 const bodyParser = require('body-parser') //used to parse the request incoming ,inorder to get the submitted input
 
 const EmployeeRoute = require('./routes/employee')
+
+const AuthRoute = require('./routes/auth')
 mongoose.connect('mongodb://localhost:27017/testdb', {useNewUrlParser : true,useUnifiedTopology : true})
 const db = mongoose.connection
 
@@ -28,3 +30,4 @@ app.listen(PORT, ()=>{
 })
 
 app.use('/api/employee',EmployeeRoute)
+app.use('/api',AuthRoute)
